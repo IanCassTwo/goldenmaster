@@ -31,14 +31,14 @@ data "akamai_property_rules_builder" "master-wheep-co-uk_rule_default" {
         enable = true
       }
     }
-    children = [
+    children = concat([
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_augment_insights.json,
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_accelerate_delivery.json,
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_offload_origin.json,
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_strengthen_security.json,
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_increase_availability.json,
       data.akamai_property_rules_builder.master-wheep-co-uk_rule_minimize_payload.json,
-    ]
+    ], var.extrarules)
   }
 }
 
